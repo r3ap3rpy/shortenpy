@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.errorhandler(404)
 def custom404(e):
-	print(e.description)
 	return render_template('error.html',error = e.description),404
 
 @app.route('/favicon.ico')
@@ -27,13 +26,11 @@ def index():
 	else:
 		Calc = hashlib.sha512(request.form.get('url').encode('utf-8')).hexdigest()
 		if derefedpages.get((Calc[:4] + Calc[-4:])):			
-			stringforderefer = 'http://shortenpy.pythonanywhere/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
+			stringforderefer = 'http://shortenpy.pythonanywhere.com/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
 			
 		else:
-			 derefedpages[(Calc[:4] + Calc[-4:])] = request.form.get('url')
-			 stringforderefer = 'http://shortenpy.pythonanywhere.com/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
-		print(stringforderefer)
-		print(os.path.join(app.root_path, 'static','cache'))
+			derefedpages[(Calc[:4] + Calc[-4:])] = request.form.get('url')
+			stringforderefer = 'http://shortenpy.pythonanywhere.com/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
 		with open(os.path.join(app.root_path, 'static','cache','translate.json'),'w') as cache:
 			cache.write(json.dumps(derefedpages))
 		return render_template('index.html',defered = stringforderefer)
