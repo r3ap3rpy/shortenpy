@@ -31,7 +31,7 @@ def index():
 			
 		else:
 			 derefedpages[(Calc[:4] + Calc[-4:])] = request.form.get('url')
-			 stringforderefer = 'http://shortenpy.pythonanywhere/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
+			 stringforderefer = 'http://shortenpy.pythonanywhere.com/deferme?key={}'.format((Calc[:4] + Calc[-4:]))
 		print(stringforderefer)
 		print(os.path.join(app.root_path, 'static','cache'))
 		with open(os.path.join(app.root_path, 'static','cache','translate.json'),'w') as cache:
