@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>ShortenPy</title>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/coming-soon.min.css') }}">
+ </head>
+
+  <body>
+
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="{{ url_for('static',filename='video/hack.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="masthead">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0">
+              <h2 class="mb-3">Welcome to ShortenPy</h2>
+              <p class="mb-5">This is a url shortening service, you can use it for free. No strings attached, only freedom of usage!</p>
+              <form method="post" action="/">
+              <div class="input-group input-group-newsletter">                
+                <input type="url" class="form-control" name="url" placeholder="Enter URL to be shortened..." aria-label="Enter URL to be shortened..." aria-describedby="basic-addon">
+
+                  <button class="btn btn-secondary" type="submit">Shorten Me!</button>
+
+              </div>
+              </form>
+                   {% if defered is defined %}
+                   <textarea autocomplete="nope" style="resize:none" class="form-control" rows="1" id="comment">{{ defered }}</textarea>
+                  {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-icons">
+      <ul class="list-unstyled text-center mb-0">
+        <li class="list-unstyled-item">
+          <a href="https://twitter.com/r3ap3rpy" target="_blank">
+            <img width=100px class="img-fluid d-block mx-auto"   src="{{url_for('static', filename='images/twitter.png')}}" alt="" />
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a href="https://www.linkedin.com/in/dániel-ernő-szabó-081359157" target="_blank">
+            <img width=100px class="img-fluid d-block mx-auto"   src="{{url_for('static', filename='images/linkedin.png')}}" alt="" />            
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a href="https://github.com/r3ap3rpy" target="_blank">
+            <img width=100px class="img-fluid d-block mx-auto"   src="{{url_for('static', filename='images/github.png')}}" alt="" />            
+          </a>
+        </li>
+        <li class="list-unstyled-item">
+          <a href="https://www.youtube.com/channel/UC1qkMXH8d2I9DDAtBSeEHqg" target="_blank">
+            <img width=100px class="img-fluid d-block mx-auto"   src="{{url_for('static', filename='images/ytube.png')}}" alt="" />            
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+
+</html>

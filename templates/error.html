@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>ShortenPy</title>
+<head>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/error.css') }}">
+
+</head>
+<body>
+<div class="overlay"></div>
+<div class="terminal">
+  <h1>Error <span class="errorcode">404</span></h1>
+  {% if error is defined %}
+  <p class="output">{{ error }}</p>
+  {% endif %}
+  <p class="output">Go to the landing page <a href="/">Index</a></p>
+  <p class="output">Good luck</p>
+</div>
+
+  </body>
+
+</html>
