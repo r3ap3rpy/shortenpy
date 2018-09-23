@@ -42,7 +42,7 @@ def deferer():
 	if request.args.get('key'):
 		if derefedpages.get(request.args.get('key')):
 			with open(os.path.join(app.root_path, 'static','logs','redirects.txt'),'a') as log:
-				log.write('{} :: {} :: {} :: {}'.format(request.remote_addr,request.url,derefedpages.get(request.args.get('key')),request.user_agent))			
+				log.write('{} :: {} :: {} :: {}\r\n'.format(request.remote_addr,request.url,derefedpages.get(request.args.get('key')),request.user_agent))			
 			return redirect(derefedpages.get(request.args.get('key')))
 		else:
 			return abort(404, description='This page was not ever derefered by this service!')
